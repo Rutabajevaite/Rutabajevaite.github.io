@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="assets/scripts/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/437b108173.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+    <div class="wrapper">
+        <section class="weather_section">
+            <div class="weather_container">
+                <div class="weather_weekly">
+                    <h1>5 DAYS FORECAST</h1>
+                    <header>
+                        <div class="inputContainer">
+                            <input type="text" name="search" id="autocompleteInput" class="city_search" autocomplete="off" autofocus="true"
+                            placeholder="Search city name...">
+                            <i class="fa fa-search searchButton" aria-hidden="true"></i>
+                        </div>
+                    </header>
+                    <h1 class="citySearchName"></h1>
+                    <div class="forecast_main"></div>
+                </div>
+                <main class="weather_main">
+                    <h1>WEATHER IN YOUR LOCATION</h1>
+                    <section class="location">
+                        <div class="city">--</div>
+                        <div class="date">--</div>
+                    </section>
+                    <div class="weather_now">
+                        <div class="temp"> - <span>°C</span></div>
+                        <img class="weather_icon_today" src="assets/images/04n.png" alt="weather">
+                        <div class="description">--</div>
+                        <div class="high-low"> -°C/ - °C</span></div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+<script src="assets/scripts/custom.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa95SRCVi7uV28IUxhlGtEieTNTgqrcF8&libraries=places&callback=activatePlaces"></script>
+</body>
+</html>

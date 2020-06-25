@@ -14,6 +14,8 @@ search.addEventListener('keypress', setEnter);
 const buttonSearch = document.querySelector('.searchButton');
 buttonSearch.addEventListener('click', setButton);
 
+const mainForcast = document.querySelector('.forecast_main');
+
 window.addEventListener('load', () => {
     //call for location
     if (navigator.geolocation) {
@@ -38,14 +40,14 @@ function setEnter(event) {
     if (event.keyCode == 13) {
         getForecast(search.value);
         search.value = '';
-        $(".forecast_main").empty();
+        mainForcast.innerHTML = '';
     }
 }
 
 function setButton() {
     getForecast(search.value);
     search.value = '';
-    $(".forecast_main").empty()
+    mainForcast.innerHTML = '';
 }
 
 function displayWeather(data) {
@@ -104,14 +106,11 @@ function displayForecast(forecastData) {
     }
 
     for (let j = 0; j < forecast.length; j++) {
-        $(".forecast_main").append('<section class="days"><div class="date">' + new Date(forecast[j][5] * 1000).toDateString() + '</div>' +
-            '<div class="temp">' + Math.round(forecast[j][1]) + '<span>°C</span></div>' +
-            '<img class="weather_icon_today" src="assets/images/' + forecast[j][0] + '.png" alt="weather"><div class="description">' + forecast[j][4] + '</div>' +
-            '<div class="high-low"> Low: ' + Math.round(forecast[j][2]) + '°C/ High: ' + Math.round(forecast[j][3]) + ' °C</span></div></section>'
-        )
-
+        mainForcast.innerHTML += '<section class="days"><div class="date">' + new Date(forecast[j][5] * 1000).toDateString() + '</div>' +
+        '<div class="temp">' + Math.round(forecast[j][1]) + '<span>°C</span></div>' +
+        '<img class="weather_icon_today" src="assets/images/' + forecast[j][0] + '.png" alt="weather"><div class="description">' + forecast[j][4] + '</div>' +
+        '<div class="high-low"> Low: ' + Math.round(forecast[j][2]) + '°C/ High: ' + Math.round(forecast[j][3]) + ' °C</span></div></section>'
     };
-
 }
 
 function activatePlaces() {

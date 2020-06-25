@@ -1,6 +1,5 @@
 "use strict";
 
-
 let long;
 let lat;
 const api = {
@@ -114,6 +113,16 @@ function displayForecast(forecastData) {
 }
 
 function activatePlaces() {
+
+    var options = {
+        types: ['(cities)'],
+       };
+
     let input = document.getElementById('autocompleteInput');
-    let autocomplete = new google.maps.places.Autocomplete(input);
+    let autocomplete = new google.maps.places.Autocomplete(input, options);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        getForecast(search.value);
+        search.value = '';
+        mainForcast.innerHTML = '';
+    });
 }
